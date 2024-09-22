@@ -52,7 +52,7 @@ kotlin {
 }
 
 android {
-    namespace = "com.jetbrains.kmpapp.shared"
+    namespace = "dev.anvith.cardmind.shared"
     compileSdk = 35
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11

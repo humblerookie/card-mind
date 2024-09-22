@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.data
+package dev.anvith.cardmind.data
 
 import kotlinx.serialization.Serializable
 

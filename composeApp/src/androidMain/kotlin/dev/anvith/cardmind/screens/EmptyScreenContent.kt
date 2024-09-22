@@ -1,12 +1,12 @@
-package com.jetbrains.kmpapp.screens
+package dev.anvith.cardmind.screens
 
 import androidx.compose.foundation.layout.Box
-import androidx.compose.material.Text
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
-import com.jetbrains.kmpapp.R
+import dev.anvith.cardmind.R
 
 @Composable
 fun EmptyScreenContent(

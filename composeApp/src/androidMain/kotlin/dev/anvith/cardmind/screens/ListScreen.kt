@@ -1,4 +1,4 @@
-package com.jetbrains.kmpapp.screens
+package dev.anvith.cardmind.screens
 
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.foundation.background
@@ -18,8 +18,8 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.items
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Text
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
@@ -29,7 +29,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
-import com.jetbrains.kmpapp.data.MuseumObject
+import dev.anvith.cardmind.data.MuseumObject
 import org.koin.androidx.compose.koinViewModel
 
 @Composable
@@ -60,8 +60,13 @@ private fun ObjectGrid(
         // TODO simplify padding after https://issuetracker.google.com/issues/365052672 is fixed
         modifier = modifier
             .fillMaxSize()
-            .padding(WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal).asPaddingValues()),
-        contentPadding = WindowInsets.safeDrawing.only(WindowInsetsSides.Vertical).asPaddingValues(),
+            .padding(
+                WindowInsets.safeDrawing
+                    .only(WindowInsetsSides.Horizontal)
+                    .asPaddingValues()
+            ),
+        contentPadding = WindowInsets.safeDrawing.only(WindowInsetsSides.Vertical)
+            .asPaddingValues(),
     ) {
         items(objects, key = { it.objectID }) { obj ->
             ObjectFrame(
@@ -95,8 +100,11 @@ private fun ObjectFrame(
 
         Spacer(Modifier.height(2.dp))
 
-        Text(obj.title, style = MaterialTheme.typography.subtitle1.copy(fontWeight = FontWeight.Bold))
-        Text(obj.artistDisplayName, style = MaterialTheme.typography.body2)
-        Text(obj.objectDate, style = MaterialTheme.typography.caption)
+        Text(
+            obj.title,
+            style = MaterialTheme.typography.titleMedium.copy(fontWeight = FontWeight.Bold)
+        )
+        Text(obj.artistDisplayName, style = MaterialTheme.typography.titleSmall)
+        Text(obj.objectDate, style = MaterialTheme.typography.bodySmall)
     }
 }

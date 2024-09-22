@@ -1,10 +1,10 @@
-package com.jetbrains.kmpapp.di
+package dev.anvith.cardmind.di
 
-import com.jetbrains.kmpapp.data.InMemoryMuseumStorage
-import com.jetbrains.kmpapp.data.KtorMuseumApi
-import com.jetbrains.kmpapp.data.MuseumApi
-import com.jetbrains.kmpapp.data.MuseumRepository
-import com.jetbrains.kmpapp.data.MuseumStorage
+import dev.anvith.cardmind.data.InMemoryMuseumStorage
+import dev.anvith.cardmind.data.KtorMuseumApi
+import dev.anvith.cardmind.data.MuseumApi
+import dev.anvith.cardmind.data.MuseumRepository
+import dev.anvith.cardmind.data.MuseumStorage
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.http.ContentType

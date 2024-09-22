@@ -1,12 +1,12 @@
-package com.jetbrains.kmpapp
+package dev.anvith.cardmind
 
 import android.app.Application
-import com.jetbrains.kmpapp.di.initKoin
-import com.jetbrains.kmpapp.screens.DetailViewModel
-import com.jetbrains.kmpapp.screens.ListViewModel
+import dev.anvith.cardmind.di.initKoin
+import dev.anvith.cardmind.screens.DetailViewModel
+import dev.anvith.cardmind.screens.ListViewModel
 import org.koin.dsl.module
 
-class MuseumApp : Application() {
+class CardMindApp : Application() {
     override fun onCreate() {
         super.onCreate()
         initKoin(

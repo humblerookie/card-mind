@@ -24,11 +24,13 @@ kotlin {
             implementation(libs.androidx.navigation.compose)
             implementation(libs.koin.androidx.compose)
             implementation(libs.coil.compose)
+            implementation(libs.androidx.compose.ui.fonts)
         }
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
             implementation(compose.material)
+            implementation(compose.material3)
             implementation(compose.ui)
             implementation(compose.components.resources)
             implementation(compose.components.uiToolingPreview)
@@ -38,11 +40,11 @@ kotlin {
 }
 
 android {
-    namespace = "com.jetbrains.kmpapp"
+    namespace = "dev.anvith.cardmind"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.jetbrains.kmpapp"
+        applicationId = "dev.anvith.cardmind"
         minSdk = 24
         targetSdk = 35
         versionCode = 1

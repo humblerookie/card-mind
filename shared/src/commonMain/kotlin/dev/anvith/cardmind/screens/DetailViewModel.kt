@@ -1,7 +1,7 @@
-package com.jetbrains.kmpapp.screens
+package dev.anvith.cardmind.screens
 
-import com.jetbrains.kmpapp.data.MuseumObject
-import com.jetbrains.kmpapp.data.MuseumRepository
+import dev.anvith.cardmind.data.MuseumObject
+import dev.anvith.cardmind.data.MuseumRepository
 import com.rickclephas.kmp.observableviewmodel.ViewModel
 import com.rickclephas.kmp.observableviewmodel.stateIn
 import com.rickclephas.kmp.nativecoroutines.NativeCoroutinesState

@@ -1,6 +1,6 @@
-package com.jetbrains.kmpapp
+package dev.anvith.cardmind
 
-import com.jetbrains.kmpapp.data.MuseumRepository
+import dev.anvith.cardmind.data.MuseumRepository
 import org.koin.core.component.KoinComponent
 import org.koin.core.component.inject
 

@@ -1,23 +1,28 @@
-package com.jetbrains.kmpapp
+package dev.anvith.cardmind
 
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.isSystemInDarkTheme
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.darkColors
-import androidx.compose.material.lightColors
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
+import androidx.compose.material3.dynamicDarkColorScheme
+import androidx.compose.material3.dynamicLightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
-import com.jetbrains.kmpapp.screens.DetailScreen
-import com.jetbrains.kmpapp.screens.ListScreen
+import dev.anvith.cardmind.screens.DetailScreen
+import dev.anvith.cardmind.screens.ListScreen
+import dev.anvith.cardmind.ui.res.AppTypography
+import dev.anvith.cardmind.ui.res.appDarkScheme
+import dev.anvith.cardmind.ui.res.appLightScheme
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,20 +33,43 @@ class MainActivity : ComponentActivity() {
             LaunchedEffect(isSystemInDarkTheme()) {
                 enableEdgeToEdge()
             }
-            App()
+            AppTheme {
+                App()
+            }
+
         }
     }
 }
 
 @Composable
 fun App() {
-    MaterialTheme(
-        colors = if (isSystemInDarkTheme()) darkColors() else lightColors()
-    ) {
-        Surface {
-            NavigationContent()
-        }
+    Surface {
+        NavigationContent()
     }
+}
+
+@Composable
+fun AppTheme(
+    darkTheme: Boolean = isSystemInDarkTheme(),
+    // Dynamic color is available on Android 12+
+    dynamicColor: Boolean = true,
+    content: @Composable() () -> Unit
+) {
+    val colorScheme = when {
+        dynamicColor && Build.VERSION.SDK_INT >= Build.VERSION_CODES.S -> {
+            val context = LocalContext.current
+            if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+        }
+
+        darkTheme -> appDarkScheme
+        else -> appLightScheme
+    }
+
+    MaterialTheme(
+        colorScheme = colorScheme,
+        typography = AppTypography,
+        content = content
+    )
 }
 
 @Composable
